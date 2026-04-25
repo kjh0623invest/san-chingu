@@ -1,0 +1,823 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary: #2D6A4F;
+  --primary-light: #40916C;
+  --primary-ultra-light: #D8F3DC;
+  --accent: #FF6B35;
+  --accent-light: #FFF0E6;
+  --gold: #F4A261;
+  --text-100: #111827;
+  --text-200: #374151;
+  --text-300: #6B7280;
+  --text-400: #9CA3AF;
+  --bg-main: #F9FAFB;
+  --bg-card: #FFFFFF;
+  --border: rgba(0,0,0,0.06);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.10);
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-full: 100px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'Noto Sans KR', -apple-system, sans-serif;
+  background: #E5E7EB;
+  color: var(--text-100);
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: keep-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+#root {
+  max-width: 430px;
+  margin: 0 auto;
+  background: var(--bg-main);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: 0 0 40px rgba(0,0,0,0.15);
+}
+
+/* ─── Hero Section ─── */
+.hero {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.hero img.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.1) 40%,
+    rgba(0,0,0,0.75) 100%
+  );
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 24px;
+  color: white;
+}
+
+.hero-content .greeting {
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.hero-content h1 {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+
+/* ─── Widget ─── */
+.widget {
+  margin: 20px 20px 0;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.widget-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 24px;
+}
+
+.widget-text p {
+  font-size: 13px;
+  color: var(--text-300);
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.widget-text h4 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-100);
+}
+
+/* ─── Section ─── */
+.section {
+  padding: 24px 20px 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-100);
+}
+
+.section-more {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-light);
+}
+
+/* ─── Horizontal Scroll ─── */
+.h-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 20px 16px;
+  margin: 0 -20px;
+  scrollbar-width: none;
+}
+.h-scroll::-webkit-scrollbar { display: none; }
+
+/* Mountain Recommend Card */
+.mountain-card {
+  flex-shrink: 0;
+  width: 180px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.mountain-card img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+}
+
+.mountain-card-info {
+  padding: 12px;
+}
+
+.mountain-card-info h5 {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.mountain-card-info .difficulty {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.difficulty.easy { background: #D8F3DC; color: #1B4332; }
+.difficulty.medium { background: #FFF3CD; color: #7D4E00; }
+.difficulty.hard { background: #FFE4E4; color: #9B1C1C; }
+
+/* ─── Character Guide ─── */
+.guide-card {
+  margin: 0 20px 20px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.guide-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.guide-header .name {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+
+.guide-header .role-badge {
+  font-size: 12px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.guide-body {
+  padding: 16px 18px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-200);
+  line-height: 1.6;
+}
+
+.guide-card.yangi .guide-header {
+  background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+}
+
+/* ─── Big Certify Button ─── */
+.certify-btn {
+  margin: 0 20px 28px;
+  width: calc(100% - 40px);
+  padding: 22px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(45, 106, 79, 0.35);
+  transition: transform 0.15s, box-shadow 0.15s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.certify-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.3);
+}
+
+/* ─── Meeting Card ─── */
+.meeting-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.meeting-card:active { transform: scale(0.99); }
+
+.meeting-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.meeting-card-body {
+  padding: 16px 18px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.badge.red { background: #FFE4E4; color: #9B1C1C; }
+.badge.green { background: #D8F3DC; color: #1B4332; }
+
+.meeting-card-body h3 {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  word-break: keep-all;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: var(--text-200);
+  font-weight: 600;
+}
+
+/* ─── Bottom Navigation ─── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 430px;
+  height: 72px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 200;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-400);
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  transition: color 0.2s;
+  flex: 1;
+}
+
+.nav-item.active { color: var(--primary); }
+.nav-item span { font-size: 12px; font-weight: 700; }
+
+/* ─── XP Bar ─── */
+.xp-card {
+  margin: 20px 20px 0;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.xp-card .profile-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: var(--primary-ultra-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.xp-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-300);
+  margin-bottom: 8px;
+}
+
+.xp-bar-bg {
+  height: 10px;
+  background: #F3F4F6;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #F4A261, #E76F51);
+  border-radius: 100px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Roadmap ─── */
+.roadmap-wrap {
+  padding: 24px 20px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.roadmap-track {
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  bottom: 80px;
+  width: 3px;
+  background: #E5E7EB;
+  z-index: 0;
+}
+
+.roadmap-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.roadmap-row:nth-child(odd) { flex-direction: row; }
+.roadmap-row:nth-child(even) { flex-direction: row-reverse; }
+
+.roadmap-node {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: white;
+  border: 4px solid #E5E7EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+  font-size: 28px;
+  transition: transform 0.2s;
+}
+
+.roadmap-node.done {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.roadmap-node.current {
+  background: white;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 6px rgba(45, 106, 79, 0.15);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(45, 106, 79, 0.15); }
+  50% { box-shadow: 0 0 0 12px rgba(45, 106, 79, 0.08); }
+}
+
+.roadmap-label {
+  flex: 1;
+  padding: 0 16px;
+}
+
+.roadmap-label h5 {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.roadmap-label p {
+  font-size: 14px;
+  color: var(--text-300);
+  font-weight: 600;
+}
+
+/* ─── Market Item ─── */
+.market-item {
+  display: flex;
+  gap: 14px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.market-item:active { transform: scale(0.99); }
+
+.market-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.market-item-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.market-item-info h4 {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.4;
+  word-break: keep-all;
+  color: var(--text-100);
+}
+
+.market-meta {
+  font-size: 13px;
+  color: var(--text-400);
+  font-weight: 600;
+}
+
+.market-price {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--text-100);
+}
+
+/* ─── Page Header ─── */
+.page-header {
+  background: white;
+  padding: 56px 24px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header h1 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.page-header p {
+  font-size: 15px;
+  color: var(--text-300);
+  font-weight: 600;
+}
+
+/* ─── Chat ─── */
+.chat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.chat-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--primary-ultra-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 22px;
+}
+
+.chat-info { flex: 1; min-width: 0; }
+
+.chat-name {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat-preview {
+  font-size: 15px;
+  color: var(--text-300);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat-time {
+  font-size: 13px;
+  color: var(--text-400);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.unread-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ─── Toast ─── */
+.toast {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: var(--text-100);
+  color: white;
+  padding: 14px 24px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-lg);
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { top: 20px; opacity: 0; }
+  to { top: 60px; opacity: 1; }
+}
+
+/* Content padding for nav */
+.page-content { padding-bottom: 90px; }
+
+/* ─── MASCOT ANIMATIONS ─── */
+
+/* 산이 (Bear): 묵직하지만 신나는 통통 + 좌우 살랑 */
+@keyframes sani-bounce {
+  0%   { transform: translateY(0)     rotate(0deg)   scale(1);    }
+  15%  { transform: translateY(-14px) rotate(-4deg)  scale(1.04); }
+  30%  { transform: translateY(-8px)  rotate(0deg)   scale(1.02); }
+  45%  { transform: translateY(-16px) rotate(4deg)   scale(1.05); }
+  60%  { transform: translateY(-6px)  rotate(0deg)   scale(1.02); }
+  75%  { transform: translateY(-12px) rotate(-2deg)  scale(1.03); }
+  100% { transform: translateY(0)     rotate(0deg)   scale(1);    }
+}
+
+/* 양이 (Goat): 가볍고 경쾌한 도약 + 좌우 흔들기 */
+@keyframes yangi-wiggle {
+  0%   { transform: translateY(0)     rotate(0deg)  scaleX(1);    }
+  10%  { transform: translateY(-10px) rotate(-5deg) scaleX(1.06); }
+  25%  { transform: translateY(-18px) rotate(0deg)  scaleX(0.97); }
+  40%  { transform: translateY(-10px) rotate(5deg)  scaleX(1.06); }
+  55%  { transform: translateY(-20px) rotate(0deg)  scaleX(1);    }
+  70%  { transform: translateY(-8px)  rotate(-3deg) scaleX(1.04); }
+  85%  { transform: translateY(-14px) rotate(3deg)  scaleX(0.98); }
+  100% { transform: translateY(0)     rotate(0deg)  scaleX(1);    }
+}
+
+/* 로드맵 현재 노드 펄스 */
+@keyframes node-pulse {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(45,106,79,0.5), 0 4px 10px rgba(0,0,0,0.1); transform: scale(1);    }
+  50%       { box-shadow: 0 0 0 14px rgba(45,106,79,0),   0 4px 10px rgba(0,0,0,0.1); transform: scale(1.1); }
+}
+
+.mascot-sani {
+  animation: sani-bounce 2.4s ease-in-out infinite;
+  display: inline-block;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 10px 14px rgba(0,0,0,0.22));
+}
+
+.mascot-yangi {
+  animation: yangi-wiggle 2.0s ease-in-out infinite;
+  display: inline-block;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 10px 14px rgba(0,0,0,0.22));
+}
+
+.roadmap-node.current {
+  animation: node-pulse 2s ease-in-out infinite !important;
+}
+
+
+/* guide-header flex 정렬 */
+.guide-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  padding: 14px 18px;
+}
+
+.guide-card.yangi .guide-header {
+  background: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 100%);
+}
+
+/* ─── CHARACTER BANNER (큰 캐릭터 가이드 카드) ─── */
+.character-banner {
+  margin: 0 20px 20px;
+  border-radius: 24px;
+  padding: 20px 20px 16px;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  overflow: hidden;
+  position: relative;
+  min-height: 170px;
+}
+
+.sani-banner {
+  background: linear-gradient(135deg, #1B4D36 0%, #2D6A4F 100%);
+}
+
+.yangi-banner {
+  background: linear-gradient(135deg, #1A3A8C 0%, #2563EB 100%);
+}
+
+.character-banner-mascot {
+  flex-shrink: 0;
+  margin-bottom: -20px;
+  margin-left: -8px;
+  filter: drop-shadow(4px 0 12px rgba(0,0,0,0.3));
+}
+
+.character-banner-content {
+  flex: 1;
+  padding: 8px 0 16px 12px;
+  color: white;
+}
+
+.character-banner-name {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.role-tag {
+  font-size: 12px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+.character-banner-speech {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.92);
+  background: rgba(0,0,0,0.15);
+  padding: 12px 14px;
+  border-radius: 16px;
+  border-top-left-radius: 4px;
+}
+
+/* ─── Duo Cheer Banner (프로필) ─── */
+.duo-cheer-banner {
+  margin: 20px 20px 0;
+  background: linear-gradient(135deg, #F0FDF4, #DCFCE7);
+  border: 1px solid #BBF7D0;
+  border-radius: 24px;
+  padding: 20px 16px 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.duo-label {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--primary);
+  text-align: center;
+  margin-top: 4px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.duo-speech {
+  flex: 1;
+  background: white;
+  border-radius: 18px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--text-200);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  border: 1px solid #D1FAE5;
+  margin-bottom: 12px;
+}
+
